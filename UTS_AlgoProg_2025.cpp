@@ -71,7 +71,69 @@ void trading(){
 	system("cls");
 
 	// code
+	/*
+		number continue increasing OR decreasing THEN stable
+		continue increasing AND decreasing (fluctuative) THEN not stable
+		
+		INPUT
+		Q = number of stock market price
+		Ai of Q = price of stock market each time, price wont be same , guaranteed
+		
+		OUTPUT
+		stable IF keep increasing OR decreasing
+		ELSE not stable
+		
+		CONSTRAINT
+		0 < Q <= 50 
+		0 < ai <= 1,000,000 
+	*/
 	
+	// input Q
+	int numberOfStock = 0;
+	do{
+		printf("Input number of stock market [1 - 50]: ");
+		scanf("%d",&numberOfStock);
+		getchar();
+	}while(numberOfStock < 1 || numberOfStock > 50);
+	
+	int temp1 = 0;
+	int temp2 = 0;
+	bool isStable = false;
+	bool lock = false; // buat ngelock value unstabble
+	for(int i = 1; i <= numberOfStock; i++){
+		int x = 0;
+		printf("Price of Stock Market #%d: ",i);
+		scanf("%d",&x);
+		getchar();
+		if(i == 1){
+			temp1 = x;	
+		} else if(i == 2){
+			temp2 = x;	
+		} else if((temp1 < temp2 && temp2 < x) || (temp1 > temp2 && temp2 > x)){
+			if(lock){
+				continue;
+			} else {
+				isStable = true;
+				temp1 = temp2;
+				temp2 = x;
+			}
+		} else {
+			isStable = false;
+			lock = true;
+		}
+	}
+	
+	// decision thinking lmao
+	system("cls");
+	printf("Calculating...\n");
+	Sleep(3000);
+	system("cls");
+	printf("The Decision is.....\n");
+	Sleep(3000);
+	system("cls");
+	
+	if(isStable) printf("Computer say: Stable\n");
+	else printf("Computer say: Unstable\n");
 	
 	printf("\nPress enter to continue...");
 	getchar();
