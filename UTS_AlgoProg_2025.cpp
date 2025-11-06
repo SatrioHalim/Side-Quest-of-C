@@ -50,8 +50,10 @@ void letsPlayRoblox(){
 	system("cls");
 	printf("Calculating...\n");
 	Sleep(3000);
+	system("cls");
 	printf("The Decision is.....\n");
 	Sleep(3000);
+	system("cls");
 	
 	// 8am - 9pm -> 780 minutes
 	if(totalMinutes > 780){
@@ -67,7 +69,10 @@ void letsPlayRoblox(){
 }
 void trading(){
 	system("cls");
-	printf("trading selected");
+
+	// code
+	
+	
 	printf("\nPress enter to continue...");
 	getchar();
 }
