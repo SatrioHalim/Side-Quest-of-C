@@ -140,7 +140,46 @@ void trading(){
 }
 void hollowHourglass(){
 	system("cls");
-	printf("Hollow Hourglass selected");
+	/*
+		Just Loop and make hourglass
+		CONSTRAITS : 
+		0 < Q <= 10
+	*/	
+
+	int size;
+	do{
+		printf("Input Size of Hourglass [1-10]: ");
+		scanf("%d",&size);
+		getchar();
+	}while(size < 0 || size > 10);
+	
+	// 5 -> 9, 3 -> 5
+	int row = (size * 2) - 1;
+	// bagian atas
+	for(int i = 0; i < row/2; i++){
+		// layer paling atas
+		if(i == 0){
+			for(int j = 0; j < row; j++){
+				printf("* ");				
+			}
+		} else {
+			for(int k = 0; k < row; k++){
+				if(k == i + 1){
+					printf("* ");
+				} else if(k == size - i){
+					printf("* ");
+				} else {
+					printf(" ");
+				}
+			}	
+		}
+		printf("\n");
+	}
+	// bagian tengah
+	
+	// bagian bawah
+	
+	
 	printf("\nPress enter to continue...");
 	getchar();
 }
